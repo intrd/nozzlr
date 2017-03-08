@@ -36,3 +36,7 @@ sample: nozzlr tasks/ssh_sample.py wl/unix_passwords.txt 1 0
 ```
 mkdir ~/nozzlr && cd ~/nozzlr && git clone http://github.com/intrd/nozzlr && sudo ln -s $PWD/nozzlr/nozzlr.py /usr/bin/nozzlr
 ```
+
+##INSTALL
+```
+```

@@ -1,3 +1,4 @@
 - session auto-save
 - check if /libs is updated, if not, download
 - doesnt working if running inside installed path
+- process more than 1 wordlist at once
