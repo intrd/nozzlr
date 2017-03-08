@@ -23,7 +23,7 @@ optional arguments:
 
 Just copy one of this samples below to your working directory and customize to your needs.  
 
-default task modules:
+sample task modules:
   samples/ftp_sample.py : RAW FTP (PoC: proFTPd, but works w/ any other server)
   samples/http_sample.py : HTTP POST (PoC: bruteforcing pastd.com private notes)
   samples/ssh_sample.py : SSH login (PoC: openSSH bruteforce)
