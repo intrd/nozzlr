@@ -42,11 +42,11 @@ parser = argparse.ArgumentParser( description="The other bruteforce tools are am
 Just copy one of this samples below to your working directory and customize to your needs.  
 
 default task modules:
+  samples/argv_sample.py : ARGV - pipe to commandline args (PoC: bruteforcing ccrypt)
+  samples/stdin_sample.py : STDIN - pipe inside commandline tools (PoC: bruteforcing LUKS)
   samples/ftp_sample.py : RAW FTP (PoC: proFTPd, but works w/ any other server)
   samples/http_sample.py : HTTP POST (PoC: bruteforcing pastd.com private notes)
   samples/ssh_sample.py : SSH login (PoC: openSSH bruteforce)
-  samples/argv_sample.py : ARGV - pipe to commandline args (PoC: bruteforcing ccrypt)
-  samples/stdin_sample.py : STDIN - pipe inside commandline tools (PoC: bruteforcing LUKS)
 
 sample: nozzlr samples/ssh_sample.py wl/unix_passwords.txt 1 0
 

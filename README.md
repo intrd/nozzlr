@@ -24,11 +24,11 @@ optional arguments:
 Just copy one of this samples below to your working directory and customize to your needs.  
 
 sample task modules:
+  samples/argv_sample.py : ARGV - pipe to commandline args (PoC: bruteforcing ccrypt)
+  samples/stdin_sample.py : STDIN - pipe inside commandline tools (PoC: bruteforcing LUKS)
   samples/ftp_sample.py : RAW FTP (PoC: proFTPd, but works w/ any other server)
   samples/http_sample.py : HTTP POST (PoC: bruteforcing pastd.com private notes)
   samples/ssh_sample.py : SSH login (PoC: openSSH bruteforce)
-  samples/argv_sample.py : ARGV - pipe to commandline args (PoC: bruteforcing ccrypt)
-  samples/stdin_sample.py : STDIN - pipe inside commandline tools (PoC: bruteforcing LUKS)
 
 This is a proof-of-concept tool, any actions and or activities is solely your responsibility. 
 The misuse of this tool can result in criminal charges brought against the persons in question. 
