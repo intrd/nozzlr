@@ -1,5 +1,1 @@
-- session auto-save
-- create dep libs
-- strange behavior when runned @ install path
 - process more than 1 wordlist at once
-- deprecate and redit old bfs
