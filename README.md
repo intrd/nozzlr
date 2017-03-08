@@ -46,12 +46,13 @@ $ cd ~/ && git clone http://github.com/intrd/nozzlr appz/nozzlr && cd appz/nozzl
 
 ##USAGE
 ```
-Copy selected task xxx_sample.py from /samples to your working directory, edit, customize, and run:
-$ nozzlr xxx_sample.py /wordlistpath/passwords.txt 5 0
+Copy selected task xxx_sample.py from /samples to your working directory, edit, and run:
+
+$ nozzlr xxx_sample.py /wordlistpath/yourpasswords.txt 5 0
 ```
 
 ##UPDATE
 ```
 $ cd ~/appz/nozzlr && git pull \
-wget -O libs/int_netcat.py https://gist.github.com/intrd/00a39c83f752acf81775bfa9721e745a/raw/
+&& wget -O libs/int_netcat.py https://gist.github.com/intrd/00a39c83f752acf81775bfa9721e745a/raw/
 ```
