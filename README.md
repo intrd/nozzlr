@@ -1,6 +1,6 @@
 # Nozzlr v1.0 
 
-Nozzlr is a multithread bruteforcer, trully modular and script-friendly - **author**: intrd@dann.com.br
+Nozzlr is a multithread bruteforcer, trully modular and script-friendly - **author**: intrd@dann.com.br & github collaborators
 
 The other bruteforce tools are amazing, but the hardcoded parameters make it painful to script 
 over complex tasks. Nozzlr comes to solve this problem. All your task parameters/engine is 
