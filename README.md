@@ -53,5 +53,5 @@ $ nozzlr xxx_sample.py /wordlistpath/passwords.txt 5 0
 ##UPDATE
 ```
 $ cd ~/nozzlr && git pull \
-wget -O libs/int_netcat.py https://gist.github.com/intrd/00a39c83f752acf81775bfa9721e745a/raw/ \
+wget -O libs/int_netcat.py https://gist.github.com/intrd/00a39c83f752acf81775bfa9721e745a/raw/
 ```
