@@ -39,8 +39,8 @@ be brought against any individuals misusing this tool to break the law.
 
 ##INSTALL
 ```
-$ cd ~/ && git clone http://github.com/intrd/nozzlr \
-wget -O libs/int_netcat.py https://gist.github.com/intrd/00a39c83f752acf81775bfa9721e745a/raw/ \
+$ cd ~/ && git clone http://github.com/intrd/nozzlr appz/nozzlr && cd appz/nozzlr \
+&& wget -O libs/int_netcat.py https://gist.github.com/intrd/00a39c83f752acf81775bfa9721e745a/raw/ \
 && sudo ln -s $PWD/nozzlr/nozzlr.py /usr/bin/nozzlr
 ```
 
@@ -52,6 +52,6 @@ $ nozzlr xxx_sample.py /wordlistpath/passwords.txt 5 0
 
 ##UPDATE
 ```
-$ cd ~/nozzlr && git pull \
+$ cd ~/appz/nozzlr && git pull \
 wget -O libs/int_netcat.py https://gist.github.com/intrd/00a39c83f752acf81775bfa9721e745a/raw/
 ```
