@@ -65,9 +65,6 @@ parser.add_argument('--resume_each', nargs='?', default=100, help='100 = default
 parser.add_argument('--quiet', nargs='?', default=False, help='Supress most of program output (saves CPU)')
 args = parser.parse_args()
 
-# print args
-# exit()
-
 threadsnum=int(args.threads)
 taskpath=args.taskmodule
 modulename=ntpath.basename(taskpath)+".session"
@@ -83,7 +80,6 @@ else:
 wordlistpath=open(args.wordlist,'r')
 nodebug=False
 if args.quiet != False: nodebug=True
-
 
 banner_loading()
 queue = Queue.Queue()
@@ -102,7 +98,6 @@ class worker(threading.Thread):
 					out+="** queue empty, closing thread.."
 					print workerid+" - "+out
 					self.alive = False
-					#self.queue.task_done()
 					break
 				else:
 					self.clear=self.queue.get()
@@ -116,26 +111,22 @@ class worker(threading.Thread):
 			retry=True
 			task = import_(taskpath)
 			t1 = time.time()
-			#runn=task.nozz_module(payload,self)
-			runn={}
-			runn["code"]="NEXT"
-			runn["result"]="aa"
-			time.sleep(0.1)
+			runn=task.nozz_module(payload,self)
+			# runn={}
+			# runn["code"]="NEXT"
+			# runn["result"]="aa"
+			# time.sleep(0.1)
 			code=runn["code"]
 			#code="error"
 			code=format(str(code)).strip()
 			out+=" "+runn["result"]
-			# self.queue.task_done()
-			# os._exit(0)
 			if code == "KILL":
 				print out
 				self.queue.task_done()
 				os._exit(0)
-				#break
 			if code == "EOF":
 				out+="** queue empty, closing thread.."
 				self.queue.task_done()
-				#self.alive = False
 			if "found" not in code and code != "NEXT":
 				time.sleep(1)
 				retry=True
@@ -151,9 +142,7 @@ class worker(threading.Thread):
 					banner_end()
 					print "## benchmark %s threads, time=%s" % (threadsnum, t2 - t1)
 					self.queue.task_done()
-					#self.alive = False
 					os._exit(0)
-				#self.alive = False
 				self.queue.task_done()
 			out=workerid+": "+out
 			out=out.replace("  "," ")
@@ -163,17 +152,15 @@ class worker(threading.Thread):
 
 def main():
 	i=0
-	for word in wordlistpath.readlines(): #created the job
+	for word in wordlistpath.readlines(): #create the job
 		if i >= resum: 
 			queue.put(str(i)+"|"+word.strip())
 		i+=1
-		#print i
 
 	for i in range(threadsnum): #create the workers
 		t=worker(queue)
 		t.setDaemon(True)
 		t.start()
-#	queue.join()
 
 if __name__ == '__main__':
     signal.signal(signal.SIGINT, handler)
