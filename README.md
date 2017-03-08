@@ -6,7 +6,7 @@ Nozzlr is a multithread bruteforcer, trully modular and script-friendly.
 
 The other bruteforce tools are amazing, but the hardcoded parameters make it painful to script 
 over complex tasks. Nozzlr comes to solve this problem. All your task parameters/engine is 
-managed directly in the task module(a python script). Script out the hell!
+managed directly in the task module(a python script). 
 
 ```
 usage: nozzlr taskmodule wordlist threads resume [-quiet] [--help]

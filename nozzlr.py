@@ -36,7 +36,7 @@ def handler(signal, frame):
     os._exit(0)
 
 banner_welcome()
-parser = argparse.ArgumentParser( description="The other bruteforce tools are amazing, but the hardcoded parameters make it painful to script over complex tasks. Nozzlr comes to solve this problem. All your task parameters/engine is managed directly in the task module(a python script). Script out the hell!\n", \
+parser = argparse.ArgumentParser( description="The other bruteforce tools are amazing, but the hardcoded parameters make it painful to script over complex tasks. Nozzlr comes to solve this problem. All your task parameters/engine is managed directly in the task module(a python script).\n", \
 	usage="nozzlr taskmodule wordlist threads resume [-quiet] [--help]\n", \
 	formatter_class=argparse.RawDescriptionHelpFormatter, epilog="""\
 Just copy one of this samples below to your working directory and customize to your needs.  
