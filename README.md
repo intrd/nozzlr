@@ -7,7 +7,9 @@ Nozzlr is a multithread bruteforcer, trully modular and script-friendly.
 ```
 usage: nozzlr taskmodule wordlist threads resume [-quiet] [--help]
 
-The other bruteforce tools are amazing, but the hardcoded parameters make it painful to script over complex tasks. Nozzlr comes to solve this problem. All your task parameters/engine is managed directly in the task module(a python script). Script out the hell!
+The other bruteforce tools are amazing, but the hardcoded parameters make it painful to script 
+over complex tasks. Nozzlr comes to solve this problem. All your task parameters/engine is 
+managed directly in the task module(a python script). Script out the hell!
 
 positional arguments:
   taskmodule      Task module filepath
@@ -28,7 +30,9 @@ default task modules:
   samples/argv_sample.py : ARGV - pipe to commandline args (PoC: bruteforcing ccrypt)
   samples/stdin_sample.py : STDIN - pipe inside commandline tools (PoC: bruteforcing LUKS)
 
-This is a proof-of-concept tool, any actions and or activities is solely your responsibility. The misuse of this tool can result in criminal charges brought against the persons in question. The authors and collaborators will not be held responsible in the event any criminal charges be brought against any individuals misusing this tool to break the law.
+This is a proof-of-concept tool, any actions and or activities is solely your responsibility. 
+The misuse of this tool can result in criminal charges brought against the persons in question. 
+The authors and collaborators will not be held responsible in the event any criminal charges be brought against any individuals misusing this tool to break the law.
 
 ```
 
