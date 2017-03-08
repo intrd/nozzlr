@@ -34,15 +34,16 @@ default task modules:
   samples/http_sample.py : HTTP POST (PoC: bruteforcing pastd.com private notes)
   samples/ssh_sample.py : SSH login (PoC: openSSH bruteforce)
 
-  Yes! your task modules/contributions are welcome :) 
-  Just do a commit push here.
-
 This is a proof-of-concept tool, any actions and or activities is solely your responsibility. 
 The misuse of this tool can result in criminal charges brought against the persons in question. 
 The authors and collaborators will not be held responsible in the event any criminal charges 
 be brought against any individuals misusing this tool to break the law.
 
 ```
+![nozzlr](/nozzlr.gif?raw=true "nozzlr bruteforce")
+
+Yes! your task modules/contributions are welcome :) 
+Just do a commit push here.
 
 ##INSTALL
 ```
