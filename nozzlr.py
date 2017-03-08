@@ -1,9 +1,9 @@
 #!/usr/bin/env python
-## Nozzlr v1.1 - Nozzlr v1.0 - Modular multithread scriptable bruteforcer
+## Nozzlr v1.1 - Nozzlr v1.0 - The modular scriptable bruteforcer
 # @author intrd - http://dann.com.br/ 
 # @license Creative Commons Attribution-ShareAlike 4.0 International License - http://creativecommons.org/licenses/by-sa/4.0/
 
-# Do not edit anything in this file, create your own task in "tasks/" directory.
+# Do not edit anything in this file, copy/edit one of the tasks from "samples/".
 
 import signal, sys, os, time, Queue, threading, imp, argparse
 
@@ -11,11 +11,11 @@ realpath=os.path.realpath(__file__).replace(os.path.basename(__file__)+".py","")
 sys.path.append(realpath+"/libs")
 
 def banner_welcome():
-	print "## Nozzlr v1.0 - Modular multithread scriptable bruteforcer "
+	print "## Nozzlr v1.0 - The modular scriptable bruteforcer "
 	print "## Author: intrd@dann.com.br - http://github.com/intrd/nozzlr\n"
 
 def banner_loading():
-	print "** loading module: "+taskpath+"\n>> bruteforce running @ "+str(threadsnum)+" threads.."
+	print "** loading module: "+taskpath+"\n>> task running @ "+str(threadsnum)+" threads.."
 
 def banner_end():
 	print "\n## end of nozzlr session."
@@ -32,34 +32,36 @@ def import_(filename):
     return mod
 
 def handler(signal, frame):
-    print "trl-C.... exiting nozzlr."
+    print "trl-C.. exiting nozzlr."
     os._exit(0)
 
 banner_welcome()
-parser = argparse.ArgumentParser( description="Nozzlr is a multithread bruteforcer, trully modular and script-friendly. \nOthers tools are amazing but is always painful when you need to script over your bruteforce taks. Nozzlr comes to solve this problem. Script out the hell!\n", \
+parser = argparse.ArgumentParser( description="The other bruteforce tools are amazing, but the hardcoded parameters make it painful to script over complex tasks. Nozzlr comes to solve this problem. All your task parameters/engine is managed directly in the task module(a python script). Script out the hell!\n", \
 	usage="nozzlr taskmodule wordlist threads resume [-quiet] [--help]\n", \
 	formatter_class=argparse.RawDescriptionHelpFormatter, epilog="""\
-Nozzlr didn't fix task parameters at command line, all your tasks are configured directly from the module. Just copy one of this sample, rename and customize to your protocol/task. 
+Just copy one of this samples below to your working directory and customize to your needs.  
 
-default modules/tasks:
-  tasks/ftp_sample.py : RAW FTP (PoC: ProFTPd but works w/ any other srvr)
-  tasks/http_sample.py : HTTP POST (PoC: breaking pastd.com private notes)
-  tasks/ssh_sample.py : SSH login (PoC: OpenSSH bruteforce)
-  tasks/argv_sample.py : ARGV - pipe to commandline args (PoC: breaking ccrypt)
-  tasks/stdin_sample.py : STDIN - pipe anything inside commandline tools (PoC: breaking LUKS)
+default task modules:
+  samples/ftp_sample.py : RAW FTP (PoC: proFTPd, but works w/ any other server)
+  samples/http_sample.py : HTTP POST (PoC: bruteforcing pastd.com private notes)
+  samples/ssh_sample.py : SSH login (PoC: openSSH bruteforce)
+  samples/argv_sample.py : ARGV - pipe to commandline args (PoC: bruteforcing ccrypt)
+  samples/stdin_sample.py : STDIN - pipe inside commandline tools (PoC: bruteforcing LUKS)
 
-sample: nozzlr tasks/ssh_sample.py wl/unix_passwords.txt 1 0
+sample: nozzlr samples/ssh_sample.py wl/unix_passwords.txt 1 0
+
+This is a proof-of-concept tool, any actions and or activities is solely your responsibility. The misuse of this tool can result in criminal charges brought against the persons in question. The authors and collaborators will not be held responsible in the event any criminal charges be brought against any individuals misusing this tool to break the law.
 """)
-parser.add_argument('task', type=str, help='Task module name (filename from tasks directory without .py)')
+parser.add_argument('taskmodule', type=str, help='Task module filepath')
 parser.add_argument('wordlist', type=str, help='Wordlist path')
 parser.add_argument('threads', type=str, help='The number of threads')
-parser.add_argument('resume', type=int, help='0 = Restart, >= 1 Resume from a given linenumber ')
+parser.add_argument('resume', type=int, help='0 = Restart, >= 1 Resume from wordlist linenumber ')
 parser.add_argument('-quiet', nargs='?', default=False, help='Supress most of program output (saves CPU)')
 args = parser.parse_args()
 threadsnum=int(args.threads)
 resum=int(args.resume)
 wordlistpath=open(args.wordlist,'r')
-taskpath=args.task
+taskpath=args.taskmodule
 nodebug=False
 if args.quiet != False: nodebug=True
 

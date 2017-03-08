@@ -1,4 +1,5 @@
 - session auto-save
-- check if /libs is updated, if not, download
-- doesnt working if running inside installed path
+- create dep libs
+- strange behavior when runned @ install path
 - process more than 1 wordlist at once
+- deprecate and redit old bfs
