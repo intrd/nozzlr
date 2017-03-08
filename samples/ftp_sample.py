@@ -14,7 +14,7 @@ def nozz_module(payload,self=False):
 	hostt="192.168.0.106"
 	portt=21
 	timeeou=5
-	tries_per_session=3 #otimized for ProFTPD
+	tries_per_session=3 #optimized for ProFTPD
 
 	## Engine
 	out={}
