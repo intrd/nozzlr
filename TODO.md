@@ -1,0 +1,2 @@
+- session auto-save
+- check if /libs is updated, if not, download
