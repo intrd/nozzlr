@@ -41,7 +41,7 @@ be brought against any individuals misusing this tool to break the law.
 ```
 $ cd ~/ && git clone http://github.com/intrd/nozzlr appz/nozzlr && cd appz/nozzlr \
 && wget -O libs/int_netcat.py https://gist.github.com/intrd/00a39c83f752acf81775bfa9721e745a/raw/ \
-&& sudo ln -s $PWD/nozzlr/nozzlr.py /usr/bin/nozzlr
+&& sudo ln -s $PWD/nozzlr.py /usr/bin/nozzlr
 ```
 
 ##USAGE
