@@ -9,21 +9,25 @@ over complex tasks. Nozzlr comes to solve this problem. All your task parameters
 managed directly in the task module(a python script). 
 
 ```
-usage: nozzlr taskmodule wordlist threads resume [-quiet] [--help]
+usage: nozzlr taskmodule wordlist threads [--offset] [--resume_each] [--quiet] [--help]
+
+The other bruteforce tools are amazing, but the hardcoded parameters make it painful to script over complex tasks. Nozzlr comes to solve this problem. All your task parameters/engine is managed directly in the task module(a python script).
 
 positional arguments:
-  taskmodule      Task module filepath
-  wordlist        Wordlist path
-  threads         The number of threads
-  resume          0 = Restart, >= 1 Resume from wordlist linenumber
+  taskmodule            Task module filepath
+  wordlist              Wordlist path
+  threads               The number of threads
 
 optional arguments:
-  -h, --help      show this help message and exit
-  -quiet [QUIET]  Supress most of program output (saves CPU)
+  -h, --help            show this help message and exit
+  --offset [OFFSET]     >= 0 start from wordlist linenumber
+  --resume_each [RESUME_EACH]
+                        100 = default, save session every 1k tries
+  --quiet [QUIET]       Supress most of program output (saves CPU)
 
 Just copy one of this samples below to your working directory and customize to your needs.  
 
-sample task modules:
+default task modules:
   samples/argv_sample.py : ARGV - pipe to commandline args (PoC: bruteforcing ccrypt)
   samples/stdin_sample.py : STDIN - pipe inside commandline tools (PoC: bruteforcing LUKS)
   samples/ftp_sample.py : RAW FTP (PoC: proFTPd, but works w/ any other server)
@@ -48,7 +52,8 @@ $ cd ~/ && git clone http://github.com/intrd/nozzlr appz/nozzlr && cd appz/nozzl
 ```
 Copy selected task xxx_sample.py from /samples to your working directory, edit, and run:
 
-$ nozzlr xxx_sample.py /wordlistpath/yourpasswords.txt 5 0
+$ nozzlr samples/ssh_sample.py wordlists/unix_passwords.txt 1
+
 ```
 
 ##UPDATE
