@@ -32,7 +32,8 @@ default task modules:
 
 This is a proof-of-concept tool, any actions and or activities is solely your responsibility. 
 The misuse of this tool can result in criminal charges brought against the persons in question. 
-The authors and collaborators will not be held responsible in the event any criminal charges be brought against any individuals misusing this tool to break the law.
+The authors and collaborators will not be held responsible in the event any criminal charges be 
+brought against any individuals misusing this tool to break the law.
 
 ```
 
