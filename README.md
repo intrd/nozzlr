@@ -1,4 +1,4 @@
-# Nozzlr v1.0 - 
+# Nozzlr v1.0 
 
 Nozzlr is a multithread bruteforcer, trully modular and script-friendly.
 
