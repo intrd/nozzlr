@@ -34,9 +34,11 @@ sample: nozzlr tasks/ssh_sample.py wl/unix_passwords.txt 1 0
 
 ##INSTALL
 ```
-mkdir ~/nozzlr && cd ~/nozzlr && git clone http://github.com/intrd/nozzlr && sudo ln -s $PWD/nozzlr/nozzlr.py /usr/bin/nozzlr
+$ mkdir ~/nozzlr && cd ~/nozzlr && git clone http://github.com/intrd/nozzlr && sudo ln -s $PWD/nozzlr/nozzlr.py /usr/bin/nozzlr
 ```
 
-##INSTALL
+##USAGE
 ```
+Copy xxx_sample.py from /tasks to your working directory, edit, customize, and run:
+$ nozzlr xxx_sample.py ../wordlistpath/unix_passwords.txt 5 0
 ```
