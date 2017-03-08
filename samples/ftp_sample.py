@@ -1,4 +1,4 @@
-## Nozzlr module : FTP login - RAW FTP bruteforcer (PoC: ProFTPd but works w/ any other server)
+## Nozzlr module : FTP login - RAW FTP bruteforcer (PoC: optimized ProFTPd but works w/ any other server)
 # @author intrd - http://dann.com.br/ 
 # @license Creative Commons Attribution-ShareAlike 4.0 International License - http://creativecommons.org/licenses/by-sa/4.0/
 
