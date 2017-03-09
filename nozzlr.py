@@ -132,7 +132,8 @@ class worker(threading.Thread):
 				os._exit(0)
 			if code == "EOF":
 				out+="** queue empty, closing thread.."
-				self.queue.task_done()
+				#self.queue.task_done()
+				break
 			if "found" not in code and code != "NEXT":
 				time.sleep(1)
 				retry=True
