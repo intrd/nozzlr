@@ -1,4 +1,4 @@
-- implement a thread based session saving
+- implement a thread based session saving or save the lowest thread wordnum
 - directory bruteforce
 - steghide bruteforce
 - rdp bruteforce
