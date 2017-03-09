@@ -7,6 +7,8 @@
 from subprocess import Popen, PIPE, STDOUT
 
 def nozz_module(payload, self=False):
+	payloads=':'.join(str(v) for v in payload.values())
+
 	## Configs
 	commandline="cryptsetup luksOpen /dev/loop0 crypt_fun"
 
@@ -17,7 +19,7 @@ def nozz_module(payload, self=False):
 	code="null"
 	try:
 		process = Popen(commandline, shell=True, stdin=PIPE, stdout=PIPE, stderr=STDOUT)
-		(output, err) = process.communicate(input=payload)
+		(output, err) = process.communicate(input=payload[0])
 	except Exception as e:
 		#print " "
 		out["result"]=format(str(e)).strip()
@@ -34,6 +36,6 @@ def nozz_module(payload, self=False):
 		out["result"]=output.strip()
 		out["code"]="NEXT"
 	else:
-		out["code"]="found: \""+payload+"\""
+		out["code"]="found: \""+payloads+"\""
 	return out
 		

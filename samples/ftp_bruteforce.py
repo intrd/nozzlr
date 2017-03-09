@@ -9,12 +9,15 @@ sys.path.append("libs/")
 from int_netcat import Netcat
 
 def nozz_module(payload,self=False):
+	payloads=':'.join(str(v) for v in payload.values())
+
 	## Configs
-	user="username"
+	user = payload[0]
+	password = payload[1]
 	hostt="192.168.0.106"
 	portt=21
 	timeeou=5
-	tries_per_session=3 #optimized for ProFTPD
+	tries_per_session=1 #optimized for ProFTPD
 
 	## Engine
 	out={}
@@ -29,15 +32,7 @@ def nozz_module(payload,self=False):
 		return out
 	out["result"]+=" "+data.strip()
 	fresh=True
-	for i in range(tries_per_session): 
-		nc.write("USER "+user+'\n')
-		try:
-			data=nc.read_until(user)
-		except Exception as e: 
-			out["code"]=format(str(e)).strip()
-			nc.close()
-			return out
-		out["result"]+=" "+data.strip()
+	for i in range(tries_per_session):
 		if not fresh:
 			if self.queue.empty() is True:
 				code="EOF"
@@ -46,12 +41,23 @@ def nozz_module(payload,self=False):
 				return out
 			else:
 				self.clear=self.queue.get()
-			payload = self.clear.strip()
-			payload = payload.split("|")
-			ind = payload[0]
-			payload = payload[1]
-			out["result"]+=(" <"+ind+"> '"+payload+"'")
-		nc.write("PASS "+payload+"\n")
+			payload = self.clear
+			ind = str(payload["id"])
+			payload = payload["payloads"]
+			payloads=':'.join(str(v) for v in payload.values())
+			out["result"]+=(" <"+ind+"> '"+payloads+"'")
+			user = payload[0]
+			password = payload[1]
+		nc.write("USER "+user+'\n')
+		try:
+			data=nc.read_until(user)
+		except Exception as e: 
+			out["code"]=format(str(e)).strip()
+			nc.close()
+			return out
+		out["result"]+=" "+data.strip()
+
+		nc.write("PASS "+password+"\n")
 		try:
 			data=nc.read()
 		except Exception as e: 
@@ -60,7 +66,7 @@ def nozz_module(payload,self=False):
 			return out
 		out["result"]+=" "+data.strip()
 		if "230" in data:
-			code="found: \""+payload+"\""
+			code="found: \""+payloads+"\""
 			nc.close()
 			out["code"]=code
 			return out

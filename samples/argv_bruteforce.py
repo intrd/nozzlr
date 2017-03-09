@@ -7,8 +7,10 @@
 from subprocess import Popen, PIPE, STDOUT
 
 def nozz_module(payload, self=False):
+	payloads=':'.join(str(v) for v in payload.values())
+
 	## Configs
-	commandline="ccrypt -d test.txt.cpt -K '"+payload+"'"
+	commandline="ccrypt -d test.txt.cpt -K '"+payload[0]+"'"
 
 	## Engine
 	out={}
@@ -32,6 +34,6 @@ def nozz_module(payload, self=False):
 	if "key does not match" in output:
 		out["code"]="NEXT"
 	else:
-		out["code"]="found: \""+payload+"\""
+		out["code"]="found: \""+payloads+"\""
 	return out
 		

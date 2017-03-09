@@ -7,10 +7,13 @@
 import paramiko
 
 def nozz_module(payload,self=False):
+	payloads=':'.join(str(v) for v in payload.values())
+
 	## Configs
 	host="localhost"
 	port=22
-	user="username"
+	user=payload[0]
+	passwd=payload[1]
 	timeout=15
 
 	## Engine
@@ -21,7 +24,7 @@ def nozz_module(payload,self=False):
 	ssh = paramiko.SSHClient()
 	ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 	try:
-		ssh.connect(host, port, user, password=payload, timeout=timeout)
+		ssh.connect(host, port, user, password=passwd, timeout=timeout)
 	except paramiko.AuthenticationException as e:
 		out["result"]=format(str(e)).strip()
 		code="NEXT"
@@ -34,7 +37,7 @@ def nozz_module(payload,self=False):
 		ssh.close()
 		out["code"]=code
 		return out
-	code="found: \""+payload+"\""
+	code="found: \""+payloads+"\""
 	out["code"]=code
 	ssh.close()
 	return out
