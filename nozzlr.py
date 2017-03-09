@@ -102,7 +102,7 @@ class worker(threading.Thread):
 				else:
 					self.clear=self.queue.get()
 				payload = self.clear.strip()
-				payload = payload.split("|")
+				payload = payload.split("|:|")
 				ind = payload[0]
 				payload = payload[1]
 				if int(ind)%resume_each==0:
@@ -154,7 +154,7 @@ def main():
 	i=0
 	for word in wordlistpath.readlines(): #create the job
 		if i >= resum: 
-			queue.put(str(i)+"|"+word.strip())
+			queue.put(str(i)+"|:|"+word.strip())
 		i+=1
 
 	for i in range(threadsnum): #create the workers
