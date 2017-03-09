@@ -60,3 +60,9 @@ nozzlr samples/ssh_bruteforce.py wordlists/unix_users.txt wordlists/unix_passwor
 cd ~/appz/nozzlr && git pull \
 && wget -O libs/int_netcat.py https://gist.github.com/intrd/00a39c83f752acf81775bfa9721e745a/raw/
 ```
+
+##CHANGELIST
+```
+v1.1
+  - now processing multiple wordlists
+```

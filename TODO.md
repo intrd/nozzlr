@@ -1,1 +1,2 @@
-nothing to do :)
+- directory bruteforce task sample
+- steghide bruteforce
