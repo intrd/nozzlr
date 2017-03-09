@@ -1,4 +1,4 @@
-- session resume can skip a few attempts in multithread(fix it by implementing a thread based session saving)
+- implement a thread based session saving
 - directory bruteforce
 - steghide bruteforce
 - rdp bruteforce
