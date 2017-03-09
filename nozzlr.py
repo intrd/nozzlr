@@ -53,7 +53,7 @@ default task modules:
   samples/http_bruteforce.py : HTTP POST (PoC: bruteforcing pastd.com private notes)
   samples/ssh_bruteforce.py : SSH login (PoC: openSSH bruteforce)
 
-sample: nozzlr samples/ssh_bruteforce.py wordlists/unix_users.txt,wordlists/unix_passwords.txt 1
+sample: nozzlr samples/ssh_bruteforce.py wordlists/unix_users.txt wordlists/unix_passwords.txt 1
 
 This is a proof-of-concept tool, any actions and or activities is solely your responsibility. The misuse of this tool can result in criminal charges brought against the persons in question. The authors and collaborators will not be held responsible in the event any criminal charges be brought against any individuals misusing this tool to break the law.
 """)
@@ -171,10 +171,10 @@ def main():
 	i=0
 	if len(wlists)==1: #create jobs (only 1 wordlist)
 		for word in wlists[0].readlines(): 
-			payloads={"id":i, "payloads": {0: word.strip()}}
-			#jobs[i]=payloads
-			#queue.put(str(i)+"|:|"+w1.strip()+"|:|" + w2.strip())
-			queue.put(payloads)
+			if i >= resum: 
+				payloads={"id":i, "payloads": {0: word.strip()}}
+				#jobs[i]=payloads
+				queue.put(payloads)
 			i+=1
 	else: #create jobs (2 combined wordlists)
 		if wlists_sizes[0] >= wlists_sizes[1]:
@@ -186,9 +186,10 @@ def main():
 		for w2 in smaller.readlines():
 			bigger.seek(0)
 			for w1 in bigger.readlines():
-				payloads={"id":i, "payloads": {0: w2.strip(), 1: w1.strip()}}
-				queue.put(payloads)
-				#jobs[i]=payloads
+				if i >= resum: 
+					payloads={"id":i, "payloads": {0: w2.strip(), 1: w1.strip()}}
+					queue.put(payloads)
+					#jobs[i]=payloads
 				i+=1
 	#print queue
 	#exit()

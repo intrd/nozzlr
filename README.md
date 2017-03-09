@@ -7,13 +7,11 @@ over complex tasks. Nozzlr comes to solve this problem. All your task parameters
 managed directly in the task module(a python script). 
 
 ```
-usage: nozzlr taskmodule wordlist threads [--offset] [--resume_each] [--quiet] [--help]
-
-The other bruteforce tools are amazing, but the hardcoded parameters make it painful to script over complex tasks. Nozzlr comes to solve this problem. All your task parameters/engine is managed directly in the task module(a python script).
+usage: nozzlr taskmodule wordlists threads [--offset] [--resume_each] [--quiet] [--help]
 
 positional arguments:
   taskmodule            Task module filepath
-  wordlist              Wordlist path
+  wordlists              Wordlist paths(space separated, 2 max)
   threads               The number of threads
 
 optional arguments:
@@ -53,7 +51,7 @@ cd ~/ && git clone http://github.com/intrd/nozzlr appz/nozzlr && cd appz/nozzlr 
 ```
 Copy selected task xxx_bruteforce.py from /samples to your working directory, edit, and run:
 
-nozzlr samples/ssh_bruteforce.py wordlists/unix_passwords.txt 1
+nozzlr samples/ssh_bruteforce.py wordlists/unix_users.txt wordlists/unix_passwords.txt 1
 
 ```
 
