@@ -8,7 +8,7 @@ import paramiko
 
 def nozz_module(payload,self=False):
 	## Configs
-	host="myhost.com"
+	host="localhost"
 	port=22
 	user="username"
 	timeout=15
