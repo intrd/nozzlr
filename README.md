@@ -26,11 +26,11 @@ optional arguments:
 Just copy one of this samples below to your working directory and customize to your needs.  
 
 default task modules:
-  samples/argv_sample.py : ARGV - pipe to commandline args (PoC: bruteforcing ccrypt)
-  samples/stdin_sample.py : STDIN - pipe inside commandline tools (PoC: bruteforcing LUKS)
-  samples/ftp_sample.py : RAW FTP (PoC: proFTPd, but works w/ any other server)
-  samples/http_sample.py : HTTP POST (PoC: bruteforcing pastd.com private notes)
-  samples/ssh_sample.py : SSH login (PoC: openSSH bruteforce)
+  samples/argv_bruteforce.py : ARGV - pipe to commandline args (PoC: bruteforcing ccrypt)
+  samples/stdin_bruteforce.py : STDIN - pipe inside commandline tools (PoC: bruteforcing LUKS)
+  samples/ftp_bruteforce.py : RAW FTP (PoC: proFTPd, but works w/ any other server)
+  samples/http_bruteforce.py : HTTP POST (PoC: bruteforcing pastd.com private notes)
+  samples/ssh_bruteforce.py : SSH login (PoC: openSSH bruteforce)
 
 This is a proof-of-concept tool, any actions and or activities is solely your responsibility. 
 The misuse of this tool can result in criminal charges brought against the persons in question. 
@@ -51,9 +51,9 @@ cd ~/ && git clone http://github.com/intrd/nozzlr appz/nozzlr && cd appz/nozzlr 
 
 ##USAGE
 ```
-Copy selected task xxx_sample.py from /samples to your working directory, edit, and run:
+Copy selected task xxx_bruteforce.py from /samples to your working directory, edit, and run:
 
-nozzlr samples/ssh_sample.py wordlists/unix_passwords.txt 1
+nozzlr samples/ssh_bruteforce.py wordlists/unix_passwords.txt 1
 
 ```
 
