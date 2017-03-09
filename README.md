@@ -44,7 +44,7 @@ Yes! your task modules/contributions are welcome :)
 
 ##INSTALL
 ```
-$ cd ~/ && git clone http://github.com/intrd/nozzlr appz/nozzlr && cd appz/nozzlr \
+cd ~/ && git clone http://github.com/intrd/nozzlr appz/nozzlr && cd appz/nozzlr \
 && wget -O libs/int_netcat.py https://gist.github.com/intrd/00a39c83f752acf81775bfa9721e745a/raw/ \
 && sudo ln -s $PWD/nozzlr.py /usr/bin/nozzlr
 ```
@@ -53,12 +53,12 @@ $ cd ~/ && git clone http://github.com/intrd/nozzlr appz/nozzlr && cd appz/nozzl
 ```
 Copy selected task xxx_sample.py from /samples to your working directory, edit, and run:
 
-$ nozzlr samples/ssh_sample.py wordlists/unix_passwords.txt 1
+nozzlr samples/ssh_sample.py wordlists/unix_passwords.txt 1
 
 ```
 
 ##UPDATE
 ```
-$ cd ~/appz/nozzlr && git pull \
+cd ~/appz/nozzlr && git pull \
 && wget -O libs/int_netcat.py https://gist.github.com/intrd/00a39c83f752acf81775bfa9721e745a/raw/
 ```
