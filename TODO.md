@@ -1,2 +1,3 @@
-- directory bruteforce task sample
+- directory bruteforce
 - steghide bruteforce
+- rdp bruteforce
