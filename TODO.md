@@ -1,4 +1,5 @@
 - implement a thread based session saving or save the lowest thread wordnum
+- selenium support 
 - directory bruteforce
 - steghide bruteforce
 - rdp bruteforce
