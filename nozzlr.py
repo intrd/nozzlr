@@ -63,8 +63,11 @@ parser.add_argument('threads', type=str, help='The number of threads')
 parser.add_argument('--offset', nargs='?', default=False, help='>= 0 start from wordlist linenumber')
 parser.add_argument('--resume_each', nargs='?', default=100, help='100 = default, save session every 1k tries')
 parser.add_argument('--quiet', nargs='?', default=False, help='Supress most of program output (saves CPU)')
+parser.add_argument('--repeats', nargs='?', default=1, help='Loops the same wordlists N times, default=1')
+
 args = parser.parse_args()
 
+repeats=int(args.repeats)
 threadsnum=int(args.threads)
 taskpath=args.taskmodule
 modulename=ntpath.basename(taskpath)+".session"
@@ -92,6 +95,7 @@ class worker(threading.Thread):
 		self.queue=queue
 	def run(self):
 		retry=False
+		founds=False
 		while self.alive:
 			workerid=threading.current_thread().getName().strip()
 			out=""
@@ -110,20 +114,21 @@ class worker(threading.Thread):
 				if int(ind)%resume_each==0:
 					int_filew(modulename,ind+"\n","w")
 			out+=(" <"+ind+"> '"+payloads+"'")
-			#print out
-			#exit()
 			retry=True
 			task = import_(taskpath)
 			t1 = time.time()
 
-			runn=task.nozz_module(payload,self)
+			if not founds: founds=""
+			runn=task.nozz_module(payload,self,founds)
+
+			# Dev debug
+			# time.sleep(0.03)
 			# runn={}
 			# runn["code"]="NEXT"
 			# runn["result"]="aa"
 			# time.sleep(0.1)
 
 			code=runn["code"]
-			#code="error"
 			code=format(str(code)).strip()
 			out+=" "+runn["result"]
 			if code == "KILL":
@@ -140,6 +145,11 @@ class worker(threading.Thread):
 			else:
 				if code == "NEXT":
 					retry=False
+					try:
+						founds+=runn["founds"]
+						time.sleep(1)
+					except Exception as e:
+						pass
 				if "found" in code:
 					pprint("\n# # # # # # # # "+code+" # # # # # # # #\n")
 					file = open("founds.txt", 'a')
@@ -171,12 +181,15 @@ def main():
 	payloads={}
 	i=0
 	if len(wlists)==1: #create jobs (only 1 wordlist)
-		for word in wlists[0].readlines(): 
-			if i >= resum: 
-				payloads={"id":i, "payloads": {0: word.strip()}}
-				#jobs[i]=payloads
-				queue.put(payloads)
-			i+=1
+		wlines=wlists[0].readlines()
+		for x in range(0,repeats):
+			for word in wlines: 
+				if i >= resum: 
+					payloads={"id":i, "payloads": {0: word.strip()}}
+					#jobs[i]=payloads
+					#print payloads
+					queue.put(payloads)
+				i+=1
 	else: #create jobs (2 combined wordlists)
 		if wlists_sizes[0] >= wlists_sizes[1]:
 			bigger=wlists[0]
@@ -184,9 +197,11 @@ def main():
 		else:
 			bigger=wlists[1]
 			smaller=wlists[0]
-		for w2 in smaller.readlines():
+		wlines_small=smaller.readlines()
+		wlines_bigger=bigger.readlines()
+		for w2 in wlines_small:
 			bigger.seek(0)
-			for w1 in bigger.readlines():
+			for w1 in wlines_bigger:
 				if i >= resum: 
 					payloads={"id":i, "payloads": {0: w2.strip(), 1: w1.strip()}}
 					queue.put(payloads)
