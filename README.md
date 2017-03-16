@@ -20,6 +20,7 @@ optional arguments:
   --resume_each [RESUME_EACH]
                         100 = default, save session every 1k tries
   --quiet [QUIET]       Supress most of program output (saves CPU)
+  --repeats [REPEATS]   Loops the same wordlists N times, default=1
 
 Just copy one of this samples below to your working directory and customize to your needs.  
 
@@ -29,6 +30,7 @@ default task modules:
   samples/ftp_bruteforce.py : RAW FTP (PoC: proFTPd, but works w/ any other server)
   samples/http_bruteforce.py : HTTP POST (PoC: bruteforcing pastd.com private notes)
   samples/ssh_bruteforce.py : SSH login (PoC: openSSH bruteforce)
+  samples/argv_charbruteforce.py : ARGV - pipe to commandline args (PoC: char by char looping wordlist N times)
 
 This is a proof-of-concept tool, any actions and or activities is solely your responsibility. 
 The misuse of this tool can result in criminal charges brought against the persons in question. 
