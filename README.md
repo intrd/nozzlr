@@ -7,7 +7,7 @@ over complex tasks. Nozzlr comes to solve this problem. All your task parameters
 managed directly in the task module(a python script). 
 
 ```
-usage: nozzlr taskmodule wordlists threads [--offset] [--resume_each] [--quiet] [--help]
+usage: nozzlr taskmodule wordlists threads [--offset] [--resume_each] [--quiet] [--repeats] [--help]
 
 positional arguments:
   taskmodule            Task module filepath
