@@ -8,7 +8,7 @@ import sys, time
 sys.path.append("libs/")
 from int_netcat import Netcat
 
-def nozz_module(payload,self=False):
+def nozz_module(payload,self=False, founds=False):
 	payloads=':'.join(str(v) for v in payload.values())
 
 	## Configs

@@ -7,7 +7,7 @@
 import urllib, shutil, json
 import requests
 
-def nozz_module(payload, self=False):
+def nozz_module(payload, self=False, founds=False):
 	payloads=':'.join(str(v) for v in payload.values())
 
 	## Configs

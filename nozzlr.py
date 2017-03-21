@@ -42,7 +42,7 @@ def int_filew(path,text,mode):
 
 banner_welcome()
 parser = argparse.ArgumentParser( description="The other bruteforce tools are amazing, but the hardcoded parameters make it painful to script over complex tasks. Nozzlr comes to solve this problem. All your task parameters/engine is managed directly in the task module(a python script).\n", \
-	usage="nozzlr taskmodule wordlists threads [--offset] [--resume_each] [--quiet] [--help]\n", \
+	usage="nozzlr taskmodule wordlists threads [--offset] [--resume_each] [--quiet] [--repeats] [--help]\n", \
 	formatter_class=argparse.RawDescriptionHelpFormatter, epilog="""\
 Just copy one of this samples below to your working directory and customize to your needs.  
 
