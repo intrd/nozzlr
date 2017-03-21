@@ -51,9 +51,8 @@ cd ~/ && git clone http://github.com/intrd/nozzlr appz/nozzlr && cd appz/nozzlr 
 ```
 
 ## USAGE
-```
 Copy selected task xxx_bruteforce.py from /samples to your working directory, edit, and run:
-
+```
 nozzlr templates/ssh_bruteforce.py wordlists/unix_users.txt wordlists/unix_passwords.txt 1
 ```
 
