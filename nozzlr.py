@@ -11,7 +11,7 @@ realpath=os.path.realpath(__file__).replace(os.path.basename(__file__)+".py","")
 sys.path.append(realpath+"/libs")
 
 def banner_welcome():
-	print "## Nozzlr v1.0 - The modular scriptable bruteforcer "
+	print "## Nozzlr v1.1 - The modular scriptable bruteforcer "
 	print "## Author: intrd@dann.com.br - http://github.com/intrd/nozzlr\n"
 
 def banner_loading():
@@ -100,13 +100,14 @@ class worker(threading.Thread):
 			workerid=threading.current_thread().getName().strip()
 			out=""
 			if not retry:
-				if self.queue.empty() is True:
-					out+="** queue empty, closing thread.."
-					print workerid+" - "+out
-					self.alive = False
-					break
-				else:
-					self.clear=self.queue.get()
+				## implement another method to check if thread finishd.
+				# if self.queue.empty() is True:
+				# 	out+="** queue empty, closing thread.."
+				# 	print workerid+" - "+out
+				# 	self.alive = False
+				# 	break
+				# else:
+				self.clear=self.queue.get()
 				payload = self.clear
 				ind = str(payload["id"])
 				payload = payload["payloads"]
@@ -169,6 +170,11 @@ class worker(threading.Thread):
 
 
 def main():
+	for i in range(threadsnum): #assign jobs to the workers
+		t=worker(queue)
+		t.setDaemon(True)
+		t.start()
+
 	wlists={}
 	wlists_sizes={}
 	wid=0
@@ -209,11 +215,6 @@ def main():
 				i+=1
 	#print queue
 	#exit()
-
-	for i in range(threadsnum): #assign jobs to the workers
-		t=worker(queue)
-		t.setDaemon(True)
-		t.start()
 
 if __name__ == '__main__':
     signal.signal(signal.SIGINT, handler)
