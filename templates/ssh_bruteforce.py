@@ -1,8 +1,8 @@
-## Nozzlr module : SSH login bruteforcer  
+## Nozzlr template : SSH login bruteforcer  
 # @author intrd - http://dann.com.br/ 
 # @license Creative Commons Attribution-ShareAlike 4.0 International License - http://creativecommons.org/licenses/by-sa/4.0/
 
-# Make a copy of this module and adapt to your needs!
+# Make a copy of this template and adapt to your needs!
 
 import paramiko
 

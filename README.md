@@ -4,14 +4,14 @@ Nozzlr is a multithread bruteforcer, trully modular and script-friendly - **auth
 
 The other bruteforce tools are amazing, but the hardcoded parameters make it painful to script 
 over complex tasks. Nozzlr comes to solve this problem. All your task parameters/engine is 
-managed directly in the task module(a python script). 
+managed directly in the task template(a python script). 
 
 ```
 usage: nozzlr taskmodule wordlists threads [--offset] [--resume_each] [--quiet] [--repeats] [--help]
 
 positional arguments:
-  taskmodule            Task module filepath
-  wordlists              Wordlist paths(space separated, 2 max)
+  taskmodule            Task template filepath
+  wordlists             Wordlist paths(space separated, 2 max)
   threads               The number of threads
 
 optional arguments:
@@ -22,15 +22,15 @@ optional arguments:
   --quiet [QUIET]       Supress most of program output (saves CPU)
   --repeats [REPEATS]   Loops the same wordlists N times, default=1
 
-Just copy one of this samples below to your working directory and customize to your needs.  
+Just copy one of this templates below to your working directory and customize to your needs.  
 
-default task modules:
-  samples/argv_bruteforce.py : ARGV - pipe to commandline args (PoC: bruteforcing ccrypt)
-  samples/stdin_bruteforce.py : STDIN - pipe inside commandline tools (PoC: bruteforcing LUKS)
-  samples/ftp_bruteforce.py : RAW FTP (PoC: proFTPd, but works w/ any other server)
-  samples/http_bruteforce.py : HTTP POST (PoC: bruteforcing pastd.com private notes)
-  samples/ssh_bruteforce.py : SSH login (PoC: openSSH bruteforce)
-  samples/argv_charbruteforce.py : ARGV - pipe to commandline args (PoC: char by char looping wordlist N times)
+default task templates:
+  templates/args_bruteforce.py : Commandline arguments bruteforcer (PoC: breaking ccrypt .cpt encrypted file)
+  templates/args_charbruteforce.py : Commandline arguments bruteforcer (PoC: char by char looping the same wordlist)
+  templates/stdin_bruteforce.py : STDIN - pipe inside commandline tools (PoC: bruteforcing LUKS)
+  templates/ftp_bruteforce.py : RAW FTP (PoC: proFTPd, but works w/ any other server)
+  templates/http_bruteforce.py : HTTP POST (PoC: bruteforcing pastd.com private notes)
+  templates/ssh_bruteforce.py : SSH login (PoC: openSSH bruteforce)
 
 This is a proof-of-concept tool, any actions and or activities is solely your responsibility. 
 The misuse of this tool can result in criminal charges brought against the persons in question. 
@@ -53,7 +53,7 @@ cd ~/ && git clone http://github.com/intrd/nozzlr appz/nozzlr && cd appz/nozzlr 
 ```
 Copy selected task xxx_bruteforce.py from /samples to your working directory, edit, and run:
 
-nozzlr samples/ssh_bruteforce.py wordlists/unix_users.txt wordlists/unix_passwords.txt 1
+nozzlr templates/ssh_bruteforce.py wordlists/unix_users.txt wordlists/unix_passwords.txt 1
 ```
 
 ## UPDATE

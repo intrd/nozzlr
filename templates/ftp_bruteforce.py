@@ -1,8 +1,8 @@
-## Nozzlr module : FTP login - RAW FTP bruteforcer (PoC: optimized ProFTPd but works w/ any other server)
+## Nozzlr template : RAW FTP bruteforcer (PoC: optimized ProFTPd but works w/ any other server)
 # @author intrd - http://dann.com.br/ 
 # @license Creative Commons Attribution-ShareAlike 4.0 International License - http://creativecommons.org/licenses/by-sa/4.0/
 
-# Make a copy of this module and adapt to your task!
+# Make a copy of this template and adapt to your task!
 
 import sys, time
 sys.path.append("libs/")

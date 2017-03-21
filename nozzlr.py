@@ -1,9 +1,9 @@
 #!/usr/bin/env python
-## Nozzlr v1.1 - Nozzlr v1.0 - The modular scriptable bruteforcer
+## Nozzlr v1.1 - Nozzlr v1.0 - The bruteforce framework
 # @author intrd - http://dann.com.br/ 
 # @license Creative Commons Attribution-ShareAlike 4.0 International License - http://creativecommons.org/licenses/by-sa/4.0/
 
-# Do not edit anything in this file, copy/edit one of the tasks from "samples/".
+# Do not edit anything in this file, copy/edit one of the tasks from "templates/".
 
 import signal, sys, os, time, Queue, threading, imp, argparse, ntpath
 
@@ -11,11 +11,11 @@ realpath=os.path.realpath(__file__).replace(os.path.basename(__file__)+".py","")
 sys.path.append(realpath+"/libs")
 
 def banner_welcome():
-	print "## Nozzlr v1.1 - The modular scriptable bruteforcer "
+	print "## Nozzlr v1.1 - The bruteforce framework "
 	print "## Author: intrd@dann.com.br - http://github.com/intrd/nozzlr\n"
 
 def banner_loading():
-	print "** loading module: "+taskpath+"\n>> task running @ "+str(threadsnum)+" threads.."
+	print "** loading template: "+taskpath+"\n>> task running @ "+str(threadsnum)+" threads.."
 
 def banner_end():
 	print "\n## end of nozzlr session."
@@ -41,23 +41,24 @@ def int_filew(path,text,mode):
 	file.close()
 
 banner_welcome()
-parser = argparse.ArgumentParser( description="The other bruteforce tools are amazing, but the hardcoded parameters make it painful to script over complex tasks. Nozzlr comes to solve this problem. All your task parameters/engine is managed directly in the task module(a python script).\n", \
-	usage="nozzlr taskmodule wordlists threads [--offset] [--resume_each] [--quiet] [--repeats] [--help]\n", \
+parser = argparse.ArgumentParser( description="The other bruteforce tools are amazing, but the hardcoded parameters make it painful to script over complex tasks. Nozzlr comes to solve this problem. All your task parameters/engine is managed directly in the task template(a python script).\n", \
+	usage="nozzlr tasktemplate wordlists threads [--offset] [--resume_each] [--quiet] [--repeats] [--help]\n", \
 	formatter_class=argparse.RawDescriptionHelpFormatter, epilog="""\
-Just copy one of this samples below to your working directory and customize to your needs.  
+Just copy one of this templates below to your working directory and customize to your needs.  
 
-default task modules:
-  samples/argv_bruteforce.py : ARGV - pipe to commandline args (PoC: bruteforcing ccrypt)
-  samples/stdin_bruteforce.py : STDIN - pipe inside commandline tools (PoC: bruteforcing LUKS)
-  samples/ftp_bruteforce.py : RAW FTP (PoC: proFTPd, but works w/ any other server)
-  samples/http_bruteforce.py : HTTP POST (PoC: bruteforcing pastd.com private notes)
-  samples/ssh_bruteforce.py : SSH login (PoC: openSSH bruteforce)
+default task templates:
+  templates/args_bruteforce.py : Commandline arguments bruteforcer (PoC: breaking ccrypt .cpt encrypted file)
+  templates/args_charbruteforce.py : Commandline arguments bruteforcer (PoC: char by char looping the same wordlist)
+  templates/stdin_bruteforce.py : STDIN - pipe inside commandline tools (PoC: bruteforcing LUKS)
+  templates/ftp_bruteforce.py : RAW FTP (PoC: proFTPd, but works w/ any other server)
+  templates/http_bruteforce.py : HTTP POST (PoC: bruteforcing pastd.com private notes)
+  templates/ssh_bruteforce.py : SSH login (PoC: openSSH bruteforce)
 
-sample: nozzlr samples/ssh_bruteforce.py wordlists/unix_users.txt wordlists/unix_passwords.txt 1
+usage: nozzlr templates/ssh_bruteforce.py wordlists/unix_users.txt wordlists/unix_passwords.txt 1
 
 This is a proof-of-concept tool, any actions and or activities is solely your responsibility. The misuse of this tool can result in criminal charges brought against the persons in question. The authors and collaborators will not be held responsible in the event any criminal charges be brought against any individuals misusing this tool to break the law.
 """)
-parser.add_argument('taskmodule', type=str, help='Task module filepath')
+parser.add_argument('taskmodule', type=str, help='Task template filepath')
 parser.add_argument('wordlists', type=str, nargs='*', help='Wordlist paths(space separated, 2 max)')
 parser.add_argument('threads', type=str, help='The number of threads')
 parser.add_argument('--offset', nargs='?', default=False, help='>= 0 start from wordlist linenumber')

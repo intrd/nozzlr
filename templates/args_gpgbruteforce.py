@@ -1,24 +1,18 @@
-## Nozzlr module : ARGV - pipe to commandline args (PoC: bruteforcing char by char looping the same wordlist)
+## Nozzlr template : Commandline arguments bruteforcer (PoC: breaking GpG .gpg encrypted files)
 # @author intrd - http://dann.com.br/ 
 # @license Creative Commons Attribution-ShareAlike 4.0 International License - http://creativecommons.org/licenses/by-sa/4.0/
 
-# Make a copy of this module and adapt to your task!
+# Make a copy of this template and adapt to your task!
 
 from subprocess import Popen, PIPE, STDOUT
 
 def nozz_module(payload, self=False, founds=False):
 	payloads=':'.join(str(v) for v in payload.values())
 
-	print founds
-	foundslen=len(founds)
-	print foundslen
-	flag=list("AAAAAAAAAAAAAAAAAAAA")
-	
-	flag[foundslen]=payload[0]
+	## Configs
+	commandline="gpg --batch --yes --passphrase "+payload[0]+" -d test.txt.gpg"
 
-	commandline="./bin "+"".join(flag)
-	print commandline
-
+	## Engine
 	out={}
 	out["code"]=""
 	out["result"]=""
@@ -27,15 +21,14 @@ def nozz_module(payload, self=False, founds=False):
 		process = Popen(commandline, shell=True, stdin=PIPE, stdout=PIPE, stderr=STDOUT, close_fds=False)
 		(output, err) = process.communicate()
 	except Exception as e:
+		#print " "
 		out["result"]=format(str(e)).strip()
 		out["code"]="error"
 		return out
-	if not "Peem! Get out of here" in output:
+	if "decryption failed" in output or "system error" in output or "usage:" in output or "missing" in output or "error:" in output or "such" in output:
 		out["code"]="NEXT"
 	else:
 		print output
-		founds=payload[0]
-		out["code"]="NEXT"
-		out["founds"]=founds
-		return out
+		out["code"]="found: \""+payloads+"\""
 	return out
+		
