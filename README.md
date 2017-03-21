@@ -41,7 +41,7 @@ be brought against any individuals misusing this tool to break the law.
 ```
 ![nozzlr](/nozzlr.gif?raw=true "nozzlr bruteforcer")
 
-Yes! your task modules/contributions are welcome :) 
+Yes! your tasktemplates/contributions are welcome :) 
 
 ## INSTALL
 ```
