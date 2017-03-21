@@ -65,5 +65,8 @@ cd ~/appz/nozzlr && git pull \
 ## CHANGELIST
 ```
 v1.1
+  - new templates:
+    breaking ccrypt .cpt encrypted file
+    char by char looping the same wordlist
   - now processing multiple wordlists
 ```
