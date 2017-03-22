@@ -58,7 +58,7 @@ nozzlr templates/ssh_bruteforce.py wordlists/unix_users.txt wordlists/unix_passw
 
 ## UPDATE
 ```
-cd ~/appz/nozzlr && git pull \
+cd ~/appz/nozzlr && git fetch --all && git reset --hard origin/master  \
 && wget -O libs/int_netcat.py https://gist.github.com/intrd/00a39c83f752acf81775bfa9721e745a/raw/
 ```
 
