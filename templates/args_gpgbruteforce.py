@@ -2,7 +2,7 @@
 # @author intrd - http://dann.com.br/ 
 # @license Creative Commons Attribution-ShareAlike 4.0 International License - http://creativecommons.org/licenses/by-sa/4.0/
 
-# Make a copy of this template and adapt to your task!
+# Make a copy of this module and adapt to your task!
 
 from subprocess import Popen, PIPE, STDOUT
 
@@ -10,7 +10,7 @@ def nozz_module(payload, self=False, founds=False):
 	payloads=':'.join(str(v) for v in payload.values())
 
 	## Configs
-	commandline="gpg --batch --yes --passphrase "+payload[0]+" -d test.txt.gpg"
+	commandline="gpg --batch --yes --passphrase "+payload[0]+" -v -d founds.txt.gpg"
 
 	## Engine
 	out={}
@@ -25,7 +25,8 @@ def nozz_module(payload, self=False, founds=False):
 		out["result"]=format(str(e)).strip()
 		out["code"]="error"
 		return out
-	if "decryption failed" in output or "system error" in output or "usage:" in output or "missing" in output or "error:" in output or "such" in output:
+	#print output
+	if not "original file name" in output:
 		out["code"]="NEXT"
 	else:
 		print output
