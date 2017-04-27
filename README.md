@@ -65,6 +65,7 @@ cd ~/appz/nozzlr && git fetch --all && git reset --hard origin/1.1  \
 ## CHANGELIST
 ```
 v1.1
+  - added Wordpress bruteforce template
   - fixed gpg template
   - new templates:
     breaking ccrypt .cpt encrypted file
