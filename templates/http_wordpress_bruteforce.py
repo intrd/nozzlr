@@ -71,6 +71,7 @@ def nozz_module(payload, self=False, founds=False):
 	else:
 		#print r.content
 		#print payloads
+		print "\n"+postdata
 		out["code"]="found: \""+payloads+"\""
 	return out
 		
