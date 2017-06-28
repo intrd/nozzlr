@@ -34,6 +34,7 @@ default task templates:
   templates/ftp_bruteforce.py : RAW FTP (PoC: proFTPd, but works w/ any other server)
   templates/http_bruteforce.py : HTTP POST (PoC: bruteforcing pastd.com private notes)
   templates/ssh_bruteforce.py : SSH login (PoC: openSSH bruteforce)
+  ...more at templates/
 
 This is a proof-of-concept tool, any actions and or activities is solely your responsibility. 
 The misuse of this tool can result in criminal charges brought against the persons in question. 
