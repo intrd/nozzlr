@@ -6,6 +6,8 @@ The other bruteforce tools are amazing, but the hardcoded parameters make it pai
 over complex tasks. Nozzlr comes to solve this problem. All your task parameters/engine is 
 managed directly in the task template(a python script). 
 
+![nozzlr](/nozzlr.gif?raw=true "nozzlr bruteforcer")
+
 ```
 usage: nozzlr taskmodule wordlists threads [--offset] [--resume_each] [--quiet] [--repeats] [--help]
 
@@ -39,8 +41,6 @@ The authors and collaborators will not be held responsible in the event any crim
 be brought against any individuals misusing this tool to break the law.
 
 ```
-![nozzlr](/nozzlr.gif?raw=true "nozzlr bruteforcer")
-
 Yes! your tasktemplates/contributions are welcome :) 
 
 ## INSTALL
