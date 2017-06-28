@@ -65,6 +65,8 @@ cd ~/appz/nozzlr && git fetch --all && git reset --hard origin/1.1  \
 ## CHANGELIST
 ```
 v1.1
+  - added SSH Passphrase - RSA private keys bruteforcer
+  - added Asterisk Call Management bruteforcer (port 5038)  
   - added Wordpress bruteforce template
   - fixed gpg template
   - new templates:

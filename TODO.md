@@ -1,6 +1,5 @@
 - create openssl symetric bruteforce
-- implement a thread based session saving or save the lowest thread wordnum
 - selenium support 
-- directory bruteforce
-- steghide bruteforce
-- rdp bruteforce
+- directory bruteforce template
+- steghide bruteforce template
+- rdp bruteforce template

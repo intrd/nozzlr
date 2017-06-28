@@ -1,4 +1,4 @@
-## Nozzlr template : SSH login bruteforcer  
+## Nozzlr template : SSH login bruteforcer (works flaweslly, deal w/ timeouts)
 # @author intrd - http://dann.com.br/ 
 # @license Creative Commons Attribution-ShareAlike 4.0 International License - http://creativecommons.org/licenses/by-sa/4.0/
 

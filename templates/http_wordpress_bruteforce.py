@@ -1,4 +1,4 @@
-## Nozzlr template : HTTP POST bruteforcer (PoC: Wordpress Bruteforce (any version))
+## Nozzlr template : HTTP POST bruteforcer (PoC: Wordpress login bruteforce (any version))
 # @author intrd - http://dann.com.br/ 
 # @license Creative Commons Attribution-ShareAlike 4.0 International License - http://creativecommons.org/licenses/by-sa/4.0/
 
