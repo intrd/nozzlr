@@ -69,11 +69,10 @@ cd ~/appz/nozzlr && git fetch --all && git reset --hard origin/1.1  \
 v1.1
   - added SSH Passphrase - RSA private keys bruteforcer
   - added Asterisk Call Management bruteforcer (port 5038)  
-  - added Wordpress bruteforce template
+  - added Wordpress bruteforce
   - fixed gpg template
-  - new templates:
-    breaking ccrypt .cpt encrypted file
-    char by char looping the same wordlist
+  - added breaking ccrypt .cpt encrypted file
+  - added char by char looping the same wordlist
   - now processing multiple wordlists
 ```
 
