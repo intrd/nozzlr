@@ -1,4 +1,4 @@
-## Nozzlr template : Commandline arguments bruteforcer (PoC: recovering SSH Passphrase from RSA private keys)
+## Nozzlr template : Commandline arguments bruteforcer (PoC: recovering SSH RSA private keys passphrase)
 # @author intrd - http://dann.com.br/ 
 # @license Creative Commons Attribution-ShareAlike 4.0 International License - http://creativecommons.org/licenses/by-sa/4.0/
 

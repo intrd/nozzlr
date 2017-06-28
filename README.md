@@ -28,6 +28,7 @@ Just copy one of this templates below to your working directory and customize to
 
 default task templates:
   templates/args_bruteforce.py : Commandline arguments bruteforcer (PoC: breaking ccrypt .cpt encrypted file)
+  templates/args_bruteforce.py : Commandline arguments bruteforcer (PoC: recovering SSH RSA private keys passphrase)
   templates/args_gpgbruteforce.py : Commandline arguments bruteforcer (PoC: breaking GpG .gpg encrypted files)
   templates/args_charbruteforce.py : Commandline arguments bruteforcer (PoC: char by char looping the same wordlist)
   templates/stdin_bruteforce.py : STDIN - pipe inside commandline tools (PoC: bruteforcing LUKS)
