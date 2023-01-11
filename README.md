@@ -1,6 +1,6 @@
 # Nozzlr v1.1
 
-[![Rawsec's CyberSecurity Inventory](http://list.rawsec.ml/img/badges/Rawsec-inventoried-FF5050_flat-square.svg)](http://list.rawsec.ml/tools.html#Nozzlr)
+[![Rawsec's CyberSecurity Inventory](http://inventory.raw.pm/img/badges/Rawsec-inventoried-FF5050_flat-square.svg)](http://inventory.raw.pm/tools.html#Nozzlr)
 
 Nozzlr is a multithread bruteforcer, trully modular and script-friendly - **author**: intrd@dann.com.br & github collaborators
 
